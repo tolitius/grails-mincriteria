@@ -1,4 +1,6 @@
 import org.codehaus.groovy.grails.plugins.DomainClassPluginSupport
+import org.hibernate.SessionFactory
+import org.codehaus.groovy.grails.orm.hibernate.metaclass.SavePersistentMethod
 import org.grails.plugin.mincriteria.validator.MinCriteriaValidator
 import org.codehaus.groovy.grails.commons.GrailsClassUtils as GCU
 import grails.util.GrailsUtil
@@ -78,7 +80,25 @@ class MinCriteriaGrailsPlugin {
 						//println "DEBUG: min criteria validation passed: ${isValid}"
 					}
 					return isValid				    
-				}				
+				}
+				
+				// if hibernate plugin installed, 'save' method will need to be complimented
+				// with mincriteria validation as well
+				if ( manager.hasGrailsPlugin("hibernate") ) {
+					
+					def classLoader = application.classLoader
+					SessionFactory sessionFactory = ctx.getBean("sessionFactory")
+					
+					def saveMethod = new SavePersistentMethod(sessionFactory, classLoader, application, cClass)
+					
+					cClass.metaClass.save = {->
+						// if minimum validation is not met, return null, as per domain.save() contract
+						if ( ! MinCriteriaValidator.validate( delegate ) )
+							return null
+							
+						saveMethod.invoke(delegate, "save", [] as Object[])
+					}
+				}
 			}
 		}
     }
