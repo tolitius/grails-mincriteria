@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="icloud" name="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" tests="7" time="0.073" timestamp="2009-11-14T05:46:07">
+  <properties />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" name="testShouldPassValidatationByZipCode" time="0.06" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" name="testShouldPassValidatationByStreetCityAndCountry" time="0.0020" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" name="testShouldPassValidatationByCityAndState" time="0.0010" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" name="testShouldPassValidatationByCityAndCountry" time="0.0020" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" name="testShouldPassValidatationByLatitudeAndLongitude" time="0.0020" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" name="testShouldFailValidatationIfMinCriteriaNotMet" time="0.0030" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests" name="testShouldFailValidatationIfMinCriteriaNotMetAndRecordError" time="0.0020" />
+  <system-out><![CDATA[--Output from testShouldPassValidatationByZipCode--
+--Output from testShouldPassValidatationByStreetCityAndCountry--
+--Output from testShouldPassValidatationByCityAndState--
+--Output from testShouldPassValidatationByCityAndCountry--
+--Output from testShouldPassValidatationByLatitudeAndLongitude--
+--Output from testShouldFailValidatationIfMinCriteriaNotMet--
+--Output from testShouldFailValidatationIfMinCriteriaNotMetAndRecordError--
+]]></system-out>
+  <system-err><![CDATA[--Output from testShouldPassValidatationByZipCode--
+--Output from testShouldPassValidatationByStreetCityAndCountry--
+--Output from testShouldPassValidatationByCityAndState--
+--Output from testShouldPassValidatationByCityAndCountry--
+--Output from testShouldPassValidatationByLatitudeAndLongitude--
+--Output from testShouldFailValidatationIfMinCriteriaNotMet--
+--Output from testShouldFailValidatationIfMinCriteriaNotMetAndRecordError--
+]]></system-err>
+</testsuite>
