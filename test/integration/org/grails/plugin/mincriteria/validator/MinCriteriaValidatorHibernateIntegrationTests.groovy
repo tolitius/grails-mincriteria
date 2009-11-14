@@ -14,6 +14,7 @@ class MinCriteriaValidatorHibernateIntegrationTests extends GrailsUnitTestCase {
 
 	void testShouldSaveByZipCode() { 
 		assertNotNull ( new Address ( zipCode: '19123' ).save() )
+		assertNotNull ( new Address ( zipCode: '19123' ).save( flush:true ) )
 	}
 	
 	void testShouldSaveByStreetCityAndCountry() {
@@ -47,6 +48,13 @@ class MinCriteriaValidatorHibernateIntegrationTests extends GrailsUnitTestCase {
 		assertNull ( new Address ( city: 'Kharkov',street: 'Peace Prospekt'  ).save() )
 		assertNull ( new Address ( country: 'Ukraine', state: 'Ukraine'  ).save() )
 		
+	}
+	
+	void testShouldNotSaveWithFlushIfMinCriteriaNotMet() {
+		
+		assertNull ( new Address ( latitude: '27.686833').save( flush:true ) )
+		assertNull ( new Address ( city: 'Kharkov',street: 'Peace Prospekt'  ).save( flush:true ) )
+		assertNull ( new Address ( country: 'Ukraine', state: 'Ukraine'  ).save( flush:true ) )
 	}
 	
 	// this ensures that Grails core validator is called during Hibernate save as well

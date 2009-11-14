@@ -98,6 +98,25 @@ class MinCriteriaGrailsPlugin {
 							
 						saveMethod.invoke(delegate, "save", [] as Object[])
 					}
+					
+					cClass.metaClass.save = {Boolean validate ->
+						// if minimum validation is not met, return null, 
+						// here can't leave it to hibernate to do it later, since hibernate
+						// does not know how
+						if ( ! MinCriteriaValidator.validate( delegate ) )
+							return null
+							
+						saveMethod.invoke(delegate, "save", [validate] as Object[])
+					}
+					cClass.metaClass.save = {Map args ->
+						// if minimum validation is not met, return null, 
+						// as per domain.save() contract
+						if ( ! MinCriteriaValidator.validate( delegate ) )
+							return null
+							
+						saveMethod.invoke(delegate, "save", [args] as Object[])
+					}
+										
 				}
 			}
 		}
