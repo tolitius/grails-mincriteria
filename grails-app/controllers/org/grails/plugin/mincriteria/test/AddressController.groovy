@@ -23,14 +23,17 @@ class AddressController {
 
     def save = {
         def addressInstance = new Address(params)
-        println "DEBUG: controller is calling Address.save(flush: true)"
+		
+		println "Address is valid: " + addressInstance.validate()
+		
+        println "DEBUG: controller 'save' action is calling Address.save(flush: true)"
 		if (addressInstance.save(flush: true)) {
-			println "DEBUG: controller's Address.save(flush: true) succeeded"
+			println "DEBUG: controller 'save' action Address.save(flush: true) succeeded"
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'address.label', default: 'Address'), addressInstance.id])}"
             redirect(action: "show", id: addressInstance.id)
         }
         else {
-			println "DEBUG: controller's Address.save(flush: true) failed"
+			println "DEBUG: controller 'save' action Address.save(flush: true) failed"
             render(view: "create", model: [addressInstance: addressInstance])
         }
     }
@@ -59,6 +62,9 @@ class AddressController {
 
     def update = {
         def addressInstance = Address.get(params.id)
+
+		println "Address is valid: " + addressInstance.validate()
+		
         if (addressInstance) {
             if (params.version) {
                 def version = params.version.toLong()
@@ -70,11 +76,14 @@ class AddressController {
                 }
             }
             addressInstance.properties = params
+			println "DEBUG: controller 'update' action is calling Address.save(flush: true)"
             if (!addressInstance.hasErrors() && addressInstance.save(flush: true)) {
+				println "DEBUG: controller 'update' action Address.save(flush: true) succeeded"
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'address.label', default: 'Address'), addressInstance.id])}"
                 redirect(action: "show", id: addressInstance.id)
             }
             else {
+				println "DEBUG: controller 'update' action Address.save(flush: true) failed"
                 render(view: "edit", model: [addressInstance: addressInstance])
             }
         }

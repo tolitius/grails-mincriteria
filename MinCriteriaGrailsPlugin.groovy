@@ -54,7 +54,7 @@ class MinCriteriaGrailsPlugin {
     def documentation = "http://grails.org/plugin/min-criteria"
 	
 	// to wait for 'domainClasses' to add domain dynamic validation methods
-	def loadAfter = ['hibernate', 'domainClasses', 'validation']
+	def loadAfter = ['hibernate', 'domainClasses', 'validation', 'controllers']
 	
     def doWithDynamicMethods = { ctx ->
 		
