@@ -1,19 +1,19 @@
 ## What is Grails minCriteria plugin? ##
 
-   DSL (Domain Specific Language) for expressing, applying and validating domain minimum criteria
+DSL (Domain Specific Language) for expressing, applying and validating domain minimum criteria
 
 ## Can you give me an example? ##
 
-   Business requirements: Address is valid if and only if "it has" 
-   one of the following combinations (of properties) set:
+Business requirements: Address is valid if and only if "it has" 
+one of the following combinations (of properties) set:
 
->        'zipCode'
->     OR 'street, city and country'
->     OR 'city and state'
->     OR 'city and country'
->     OR 'latitude and longitude'
+        'zipCode'
+     OR 'street, city and country'
+     OR 'city and state'
+     OR 'city and country'
+     OR 'latitude and longitude'
 
-     With 'minCriteria' plugin this can be expressed in the Address domain object as:    	
+With 'minCriteria' plugin this can be expressed in the Address domain object as:    	
 
      static minCriteria = [
 
@@ -24,8 +24,8 @@
           [ 'latitude', 'longitude' ]
      ]
 
-     Every time "Address.validate()" is called, whether it is automatically on ".save()" or 
-     explicitly in the controller, the plugin will ensure that Address minimum criteria (Business requirement) is met.
+Every time "Address.validate()" is called, whether it is automatically on ".save()" or 
+explicitly in the controller, the plugin will ensure that Address minimum criteria (Business requirement) is met.
 
 ## So, is it like Grails native constraints? ##
 
