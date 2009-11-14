@@ -1,5 +1,5 @@
 Testsuite: org.grails.plugin.mincriteria.validator.MinCriteriaValidatorUnitTests
-Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.073 sec
+Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.126 sec
 ------------- Standard Output ---------------
 --Output from testShouldPassValidatationByZipCode--
 --Output from testShouldPassValidatationByStreetCityAndCountry--
@@ -19,10 +19,10 @@ Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.073 sec
 --Output from testShouldFailValidatationIfMinCriteriaNotMetAndRecordError--
 ------------- ---------------- ---------------
 
-Testcase: testShouldPassValidatationByZipCode took 0.06 sec
-Testcase: testShouldPassValidatationByStreetCityAndCountry took 0.002 sec
-Testcase: testShouldPassValidatationByCityAndState took 0.002 sec
-Testcase: testShouldPassValidatationByCityAndCountry took 0.002 sec
-Testcase: testShouldPassValidatationByLatitudeAndLongitude took 0.002 sec
-Testcase: testShouldFailValidatationIfMinCriteriaNotMet took 0.003 sec
-Testcase: testShouldFailValidatationIfMinCriteriaNotMetAndRecordError took 0.002 sec
+Testcase: testShouldPassValidatationByZipCode took 0.104 sec
+Testcase: testShouldPassValidatationByStreetCityAndCountry took 0.003 sec
+Testcase: testShouldPassValidatationByCityAndState took 0.003 sec
+Testcase: testShouldPassValidatationByCityAndCountry took 0.003 sec
+Testcase: testShouldPassValidatationByLatitudeAndLongitude took 0.005 sec
+Testcase: testShouldFailValidatationIfMinCriteriaNotMet took 0.004 sec
+Testcase: testShouldFailValidatationIfMinCriteriaNotMetAndRecordError took 0.004 sec

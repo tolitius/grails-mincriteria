@@ -12,15 +12,17 @@ class MinCriteriaGrailsPlugin {
     def dependsOn = [:]
     // resources that are excluded from plugin packaging
     def pluginExcludes = [
-            "grails-app/views/error.gsp",
-            "grails-app/domain/*"
-    ]
+		"grails-app/views/*.gsp",
+		"grails-app/views/**/*.gsp",
+		"grails-app/domain/**/*.groovy",
+		"grails-app/controllers/**/*.groovy",
+	]
 
     def author = "Anatoly Polinsky"
     def authorEmail = "anatoly.polinsky@gmail.com"
     def title = "Validates domain minimum criteria"
     def description = '''\\
-DSL for expressing, applying and validating domain minimum criteria (example):
+   DSL for expressing, applying and validating domain minimum criteria (example):
 
    Business requirements: Address is valid if and only if "it has" 
    one of the following combinations (of properties) set:

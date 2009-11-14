@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="icloud" name="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" tests="8" time="0.081" timestamp="2009-11-14T05:46:10">
+<testsuite errors="0" failures="0" hostname="icloud" name="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" tests="8" time="0.092" timestamp="2009-11-14T08:32:50">
   <properties />
-  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByZipCode" time="0.0050" />
-  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByStreetCityAndCountry" time="0.0040" />
-  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByCityAndState" time="0.0050" />
-  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByCityAndCountry" time="0.0060" />
-  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByLatitudeAndLongitude" time="0.0030" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByZipCode" time="0.03" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByStreetCityAndCountry" time="0.0050" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByCityAndState" time="0.0040" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByCityAndCountry" time="0.0040" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldPassValidatationByLatitudeAndLongitude" time="0.0040" />
   <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldFailValidatationIfMinCriteriaNotMet" time="0.0090" />
-  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldFailCoreValidatation" time="0.0040" />
-  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldFailValidatationIfMinCriteriaNotMetAndRecordError" time="0.0050" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldFailCoreValidatation" time="0.0090" />
+  <testcase classname="org.grails.plugin.mincriteria.validator.MinCriteriaValidatorIntegrationTests" name="testShouldFailValidatationIfMinCriteriaNotMetAndRecordError" time="0.0030" />
   <system-out><![CDATA[--Output from testShouldPassValidatationByZipCode--
 --Output from testShouldPassValidatationByStreetCityAndCountry--
 --Output from testShouldPassValidatationByCityAndState--
