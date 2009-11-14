@@ -1,8 +1,0 @@
---Output from testShouldPassValidatationByZipCode--
---Output from testShouldPassValidatationByStreetCityAndCountry--
---Output from testShouldPassValidatationByCityAndState--
---Output from testShouldPassValidatationByCityAndCountry--
---Output from testShouldPassValidatationByLatitudeAndLongitude--
---Output from testShouldFailValidatationIfMinCriteriaNotMet--
---Output from testShouldFailCoreValidatation--
---Output from testShouldFailValidatationIfMinCriteriaNotMetAndRecordError--
