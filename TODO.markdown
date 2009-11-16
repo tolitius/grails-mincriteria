@@ -12,7 +12,7 @@ Figure out the way to set them for only Domain classes that have minCriteria def
 
 Currently a default message displayed in case a minimum criteria is not met:
 
-   "Minimum criteria is not met"
+    "Minimum criteria is not met"
 
 But it is configurable through 'validation.error.min.criteria' message property
 Enhance it by allowing user to pass parameters ([{0}], [{1}], etc..)

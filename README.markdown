@@ -31,10 +31,10 @@ explicitly in the controller, the plugin will ensure that Address minimum criter
 
 Currently a default message returned/displayed in case a minimum criteria is not met:
 
-   "Minimum criteria is not met"
+    "Minimum criteria is not met"
 
 But it is configurable through 'validation.error.min.criteria' message property
-*(see 'TODO.markdown' document for future enhancements)*
+<br>*(see '[TODO.markdown](http://github.com/trickster/grails-mincriteria/blob/master/TODO.markdown "TODO.markdown")' document for future enhancements)*
 
 ## So, is it like Grails native constraints? ##
 
