@@ -23,9 +23,9 @@ log4j = {
 			'org.hibernate',
 			'org.grails.plugin.mincriteria.validator'
 	
-	warn    'org.grails.plugin.mincriteria.validator'
+	//warn    //'org.grails.plugin.mincriteria.validator'
 			//'org.codehaus.groovy.grails.plugins'
 	
-	debug   'org.grails.plugin.mincriteria.validator.MinCriteriaValidator'
+	//debug   //'org.grails.plugin.mincriteria.validator.MinCriteriaValidator'
 			//'org.codehaus.groovy.grails.plugins'
 }

@@ -62,13 +62,20 @@ class MinCriteriaGrailsPlugin {
 	def loadAfter = ['core', 'domainClasses', 'hibernate']
 	
 	def doWithSpring = {
-		
+
+		/** go through all domain classes, 
+            pick the ones with minCriteria defined,
+            register a MinCriteriaValidator for them **/		
+
 		for(GrailsDomainClass dc in application.domainClasses) {
-			println "\nDEBUG: registering ${dc.fullName}\n"
-			"${dc.fullName}Validator"(MinCriteriaValidator) {
-				messageSource = ref("messageSource")
-				domainClass = ref("${dc.fullName}DomainClass")
-				grailsApplication = ref("grailsApplication", true)                
+			if ( GCU.isStaticProperty( dc.clazz, "minCriteria" ) ) {
+
+				//println "\nDEBUG: registering ${dc.fullName}\n"
+				"${dc.fullName}Validator"(MinCriteriaValidator) {
+					messageSource = ref("messageSource")
+					domainClass = ref("${dc.fullName}DomainClass")
+					grailsApplication = ref("grailsApplication", true)                
+				}
 			}
 		}
 			
