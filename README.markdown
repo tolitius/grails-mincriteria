@@ -4,7 +4,7 @@ DSL (Domain Specific Language) for expressing, applying and validating domain mi
 
 ## Can you give me an example? ##
 
-Business requirements: Address is valid if and only if "it has" 
+Business requirement: Address is valid if and only if "it has" 
 one of the following combinations (of properties) set:
 
         'zipCode'

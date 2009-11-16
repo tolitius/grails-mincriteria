@@ -1,8 +1,13 @@
-import org.codehaus.groovy.grails.plugins.DomainClassPluginSupport
-import org.hibernate.SessionFactory
-import org.codehaus.groovy.grails.orm.hibernate.metaclass.SavePersistentMethod
+import org.springframework.context .ApplicationContext
 import org.grails.plugin.mincriteria.validator.MinCriteriaValidator
+import org.codehaus.groovy.grails.commons .GrailsDomainClass
+
+import org.hibernate.SessionFactory
+import org.codehaus.groovy.grails.orm.hibernate.metaclass.ValidatePersistentMethod
+import org.codehaus.groovy.grails.orm.hibernate.metaclass.SavePersistentMethod
+import org.codehaus.groovy.grails.plugins.DomainClassPluginSupport
 import org.codehaus.groovy.grails.commons.GrailsClassUtils as GCU
+import org.springframework.validation.Validator
 import grails.util.GrailsUtil
 
 class MinCriteriaGrailsPlugin {
@@ -26,7 +31,7 @@ class MinCriteriaGrailsPlugin {
     def description = '''\\
    DSL for expressing, applying and validating domain minimum criteria (example):
 
-   Business requirements: Address is valid if and only if "it has" 
+   Business requirement: Address is valid if and only if "it has" 
    one of the following combinations (of properties) set:
 
         'zipCode'
@@ -54,71 +59,18 @@ class MinCriteriaGrailsPlugin {
     def documentation = "http://grails.org/plugin/min-criteria"
 	
 	// to wait for 'domainClasses' to add domain dynamic validation methods
-	def loadAfter = ['hibernate', 'domainClasses', 'validation', 'controllers']
+	def loadAfter = ['core', 'domainClasses', 'hibernate']
 	
-    def doWithDynamicMethods = { ctx ->
+	def doWithSpring = {
 		
-		/** TODO: Add '*'(nullable:true) to all the constraints when the plugin loads **/
-		
-		//ConfigSlurper configSlurper = new ConfigSlurper( application.config )
-		//def defaultNullableTrue = { '*'(nullable:true) }
-		//configSlurper.setBinding( [ "ants" : defaultNullableTrue ] )
-		
-		application.domainClasses.each { cClass ->
-			if ( GCU.isStaticProperty( cClass.clazz, "minCriteria" ) ) {
-				//println "DEBUG: Domain ${cClass} has 'minCriteria' defined..."
-				
-				// complimenting the core method with min criteria validation
-				cClass.metaClass.validate = { -> 
-					
-					Boolean isValid = DomainClassPluginSupport.validateInstance(delegate, ctx)
-					//println "DEBUG: normal validation passed: ${isValid}"
-					
-					if (isValid) {
-						// running minCriteria validator after the core domain validation 
-						isValid = MinCriteriaValidator.validate( delegate )
-						//println "DEBUG: min criteria validation passed: ${isValid}"
-					}
-					return isValid				    
-				}
-				
-				// if hibernate plugin installed, 'save' method will need to be complimented
-				// with mincriteria validation as well
-				if ( manager.hasGrailsPlugin("hibernate") ) {
-					
-					def classLoader = application.classLoader
-					SessionFactory sessionFactory = ctx.getBean("sessionFactory")
-					
-					def saveMethod = new SavePersistentMethod(sessionFactory, classLoader, application, cClass)
-					
-					cClass.metaClass.save = {->
-						// if minimum validation is not met, return null, as per domain.save() contract
-						if ( ! MinCriteriaValidator.validate( delegate ) )
-							return null
-							
-						saveMethod.invoke(delegate, "save", [] as Object[])
-					}
-					
-					cClass.metaClass.save = {Boolean validate ->
-						// if minimum validation is not met, return null, 
-						// here can't leave it to hibernate to do it later, since hibernate
-						// does not know how
-						if ( ! MinCriteriaValidator.validate( delegate ) )
-							return null
-							
-						saveMethod.invoke(delegate, "save", [validate] as Object[])
-					}
-					cClass.metaClass.save = {Map args ->
-						// if minimum validation is not met, return null, 
-						// as per domain.save() contract
-						if ( ! MinCriteriaValidator.validate( delegate ) )
-							return null
-							
-						saveMethod.invoke(delegate, "save", [args] as Object[])
-					}
-										
-				}
+		for(GrailsDomainClass dc in application.domainClasses) {
+			println "\nDEBUG: registering ${dc.fullName}\n"
+			"${dc.fullName}Validator"(MinCriteriaValidator) {
+				messageSource = ref("messageSource")
+				domainClass = ref("${dc.fullName}DomainClass")
+				grailsApplication = ref("grailsApplication", true)                
 			}
 		}
-    }
+			
+	}		
 }

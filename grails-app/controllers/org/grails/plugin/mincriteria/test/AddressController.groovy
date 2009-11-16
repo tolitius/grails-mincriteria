@@ -25,7 +25,10 @@ class AddressController {
         def addressInstance = new Address(params)
 		
 		println "Address is valid: " + addressInstance.validate()
-		
+
+		println addressInstance.metaClass.methods.find { it.name.startsWith("vali") }
+
+
         println "DEBUG: controller 'save' action is calling Address.save(flush: true)"
 		if (addressInstance.save(flush: true)) {
 			println "DEBUG: controller 'save' action Address.save(flush: true) succeeded"
