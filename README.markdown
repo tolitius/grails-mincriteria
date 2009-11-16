@@ -27,6 +27,15 @@ With minCriteria plugin this can be expressed in the Address domain object as:
 Every time "Address.validate()" is called, whether it is automatically on ".save()" or 
 explicitly in the controller, the plugin will ensure that Address minimum criteria (Business requirement) is met
 
+## What error do I get in case a minimum criteria was not met?  ##
+
+Currently a default message returned/displayed in case a minimum criteria is not met:
+
+   "Minimum criteria is not met"
+
+But it is configurable through 'validation.error.min.criteria' message property
+*(see 'TODO.markdown' document for future enhancements)*
+
 ## So, is it like Grails native constraints? ##
 
 The idea is to make sure that Domain objects have a set of different criterias that should be met once they are validated.
