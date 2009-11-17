@@ -56,7 +56,7 @@ class MinCriteriaGrailsPlugin {
 '''
 
     // URL to the plugin's documentation
-    def documentation = "http://grails.org/plugin/min-criteria"
+    def documentation = "http://github.com/trickster/grails-mincriteria/blob/master/README.markdown"
 	
 	// to wait for 'domainClasses' to add domain dynamic validation methods
 	def loadAfter = ['core', 'domainClasses', 'hibernate']
