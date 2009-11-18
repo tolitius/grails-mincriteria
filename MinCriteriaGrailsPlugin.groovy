@@ -26,7 +26,7 @@ class MinCriteriaGrailsPlugin {
 	]
 
     def author = "Anatoly Polinsky"
-    def authorEmail = "anatoly.polinsky@gmail.com"
+    def authorEmail = "tolitius@gmail.com"
     def title = "Validates domain minimum criteria"
     def description = '''\\
    DSL for expressing, applying and validating domain minimum criteria (example):
