@@ -1,0 +1,9 @@
+# .gitignore for Grails
+*.class
+.project
+.classpath
+.settings
+/web-app/WEB-INF/classes
+/target/classes
+/target/test-reports
+/target/*.log
