@@ -41,4 +41,50 @@ class MinCriteriaValidatorControllerIntegrationTests extends GrailsUnitTestCase 
 					  addressController.modelAndView.model.addressInstance.errors.allErrors[0].defaultMessage )
 	}
 		
+	void testShouldUpdateIfMinSearchCriteriaMet() {
+	
+		def addressInstance = new Address()
+
+		addressInstance.zipCode = '12345'
+		addressInstance.save(flush:true)	
+
+		addressController.params.id = addressInstance.id
+		println "[UPDATE] address ID is: $addressController.params.id"
+		addressController.update()
+ 
+		assertEquals "/address/show/$addressInstance.id", addressController.response.redirectedUrl
+	}	
+	
+    void testShouldNotUpdateIfMinSearchCriteriaNotMet() {
+		
+		def addressInstance = new Address()
+
+		addressInstance.zipCode = '12345'
+		addressInstance.save(flush:true)	
+
+		addressController.params.id = addressInstance.id
+		addressInstance.zipCode = ''
+		addressInstance.street = 'Prospekt Utrenikova'
+
+		addressController.update()
+
+		assertEquals addressInstance, addressController.modelAndView.model.addressInstance
+    }
+	
+	void testShouldNotUpdateAndReturnMinSearchCriteriaError() {
+		
+		def addressInstance = new Address()
+
+		addressInstance.zipCode = '12345'
+		addressInstance.save(flush:true)	
+
+		addressController.params.id = addressInstance.id
+		addressInstance.zipCode = ''
+		addressInstance.street = 'Prospekt Utrenikova'
+
+		addressController.update()
+		
+		assertEquals( "minimum criteria is not met", 
+					  addressController.modelAndView.model.addressInstance.errors.allErrors[0].defaultMessage )
+	}
 }

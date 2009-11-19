@@ -66,7 +66,7 @@ class AddressController {
     def update = {
         def addressInstance = Address.get(params.id)
 
-		println "Address is valid: " + addressInstance.validate()
+		println "[UPDATE] got address: " + addressInstance
 		
         if (addressInstance) {
             if (params.version) {
