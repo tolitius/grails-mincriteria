@@ -31,10 +31,19 @@ explicitly in the controller, the plugin will ensure that Address minimum criter
 
 Currently a default message returned/displayed in case a minimum criteria is not met:
 
-    "Minimum criteria is not met"
+    "Minimum criteria for [Address] is not met" 
 
-But it is configurable through 'validation.error.min.criteria' message property
-<br>*(see '[TODO.markdown](http://github.com/trickster/grails-mincriteria/blob/master/TODO.markdown "TODO.markdown")' document for future enhancements)*
+"Address" here is the domain object name discussed above. By default the plugin would pick up a domain name and would use it within the error message (e.g. if your domain name is "Car", the default error message would be "Minimum criteria for [Car] is not met").
+
+But this message is configurable through 'validation.error.min.criteria' message property. And since v0.1.1, the plugin supports message parameters (something that is called "errorArgs" in Spring). For example, if you put the following property under "grails-app/i18n/messages.properties":
+
+    "validation.error.min.criteria=Minimum search criteria for {0} is not met."
+
+and your domain name is "Car", the message your end-user would get is:
+
+    "Minimum search criteria for Car is not met." 
+
+<br>*(see '[TODO.markdown](http://github.com/trickster/grails-mincriteria/blob/master/TODO.markdown "TODO.markdown")' document to read about future enhancements)*
 
 ## So, is it like Grails native constraints? ##
 
