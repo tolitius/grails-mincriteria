@@ -43,7 +43,7 @@ and your domain name is "Car", the message your end-user would get is:
 
     "Minimum search criteria for Car is not met." 
 
-<br>*(see '[TODO.markdown](http://github.com/trickster/grails-mincriteria/blob/master/TODO.markdown "TODO.markdown")' document to read about future enhancements)*
+*(see '[TODO.markdown](http://github.com/trickster/grails-mincriteria/blob/master/TODO.markdown "TODO.markdown")' document to read about future enhancements)*
 
 ## So, is it like Grails native constraints? ##
 
