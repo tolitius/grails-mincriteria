@@ -28,9 +28,10 @@ class MinCriteriaValidator extends GrailsDomainClassValidator {
 		}
 		
 		if( !isValid ) {
-			/** TODO: Incorporate Grails messaging resolution **/
-			domain.errors.reject("validation.error.min.criteria", 
-			                     "minimum criteria is not met")
+			/** TODO: Incorporate i18n messaging resolution **/
+			domain.errors.reject("validation.error.min.criteria",
+								 [ domain.class.simpleName ] as Object[],
+			                     "Minimum criteria for ${domain.class.simpleName} is not met")
 			
 			LOG.debug "VDEBUG: minCriteria validation (!)FAILED(!)"
 		}

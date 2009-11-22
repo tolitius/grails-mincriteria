@@ -66,6 +66,6 @@ class MinCriteriaValidatorUnitTests extends GrailsUnitTestCase {
 		Boolean isValid = MinCriteriaValidator.validate( address )
 
 		assertFalse( isValid )
-		assertEquals( "minimum criteria is not met", address.errors.allErrors[0].defaultMessage )
+		assertEquals( "Minimum criteria for ${address.class.simpleName} is not met", address.errors.allErrors[0].defaultMessage )
 	}
 }

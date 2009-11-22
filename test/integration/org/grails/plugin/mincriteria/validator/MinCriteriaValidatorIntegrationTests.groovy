@@ -62,7 +62,7 @@ class MinCriteriaValidatorIntegrationTests extends GrailsUnitTestCase {
 		Address address = new Address ( latitude: '27.686833')
 		Boolean isValid = address.validate()
 
-		assertEquals( "minimum criteria is not met", address.errors.allErrors[0].defaultMessage )
+		assertEquals( "Minimum criteria for ${address.class.simpleName} is not met", address.errors.allErrors[0].defaultMessage )
 	}	
 	
 	// this ensures that Grails core validator is called first

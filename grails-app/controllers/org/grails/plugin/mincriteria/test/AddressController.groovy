@@ -24,9 +24,9 @@ class AddressController {
     def save = {
         def addressInstance = new Address(params)
 		
-		println "Address is valid: " + addressInstance.validate()
+		//println "Address is valid: " + addressInstance.validate()
 
-		println addressInstance.metaClass.methods.find { it.name.startsWith("vali") }
+		//println addressInstance.metaClass.methods.find { it.name.startsWith("vali") }
 
 
         println "DEBUG: controller 'save' action is calling Address.save(flush: true)"

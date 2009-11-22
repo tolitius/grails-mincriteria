@@ -37,7 +37,7 @@ class MinCriteriaValidatorControllerIntegrationTests extends GrailsUnitTestCase 
 		addressController.params.street = 'Prospekt Utrenikova'		
 		addressController.save()
 		
-		assertEquals( "minimum criteria is not met", 
+		assertEquals( "Minimum criteria for ${addressController.modelAndView.model.addressInstance.class.simpleName} is not met", 
 					  addressController.modelAndView.model.addressInstance.errors.allErrors[0].defaultMessage )
 	}
 		
@@ -84,7 +84,7 @@ class MinCriteriaValidatorControllerIntegrationTests extends GrailsUnitTestCase 
 
 		addressController.update()
 		
-		assertEquals( "minimum criteria is not met", 
+		assertEquals( "Minimum criteria for ${addressController.modelAndView.model.addressInstance.class.simpleName} is not met", 
 					  addressController.modelAndView.model.addressInstance.errors.allErrors[0].defaultMessage )
 	}
 }
